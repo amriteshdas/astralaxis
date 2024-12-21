@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astral Axis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png" type="image/png">
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    rel="stylesheet"
+    />
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="brand">
+                <img src="logo.png" alt="Astral Axis Logo" class="logo">
+                <h1>Astral Axis</h1>
+            </div>
+            <!-- Mobile Menu Toggle Button -->
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+    
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Welcome to <span>ASTRAL AXIS</span></h1>
+            <p>Your Partner in Crafting Digital Masterpieces</p>
+            <a href="#services" class="cta-btn">Explore Services</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="service-container">
+            <div class="service-content">
+                <!-- Service Image -->
+                <img src="assets/web-development.jpg" alt="Web Development" class="service-image" id="service-image">
+                <!-- Service Description -->
+                <div class="service-description" id="service-description">
+                    <h3>Web Development</h3>
+                    <p>We build modern, responsive, and fast-loading websites to meet your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2 class="section-title">Our Projects</h2>
+        <div class="project-container">
+
+            <!-- Recipe Finder -->
+            <div class="project-card" data-index="0">
+                <img src="rf.png" alt="Recipe Finder" class="project-image">
+                <div class="project-info">
+                    <h3>Recipe Finder</h3>
+                    <p>A web app to find delicious recipes using ingredients you have.</p>
+                    <a href="https://amriteshdas.github.io/recipe/" target="_blank" class="project-btn">Live Website</a>
+                </div>
+            </div>
+
+            <!-- Weather App -->
+            <div class="project-card" data-index="1">
+                <img src="wa.png" alt="Weather App" class="project-image">
+                <div class="project-info">
+                    <h3>Weather App</h3>
+                    <p>Check the current weather and forecast for any location worldwide.</p>
+                    <a href="https://amriteshdas.github.io/weatherapp/" target="_blank" class="project-btn">Live Website</a>
+                </div>
+            </div>
+
+            <!-- Personal Portfolio -->
+            <div class="project-card" data-index="2">
+                <img src="pf.png" alt="Personal Portfolio" class="project-image">
+                <div class="project-info">
+                    <h3>Personal Portfolio</h3>
+                    <p>My personal portfolio showcasing my skills and work.</p>
+                    <a href="https://amriteshdas.github.io/home/index.html" target="_blank" class="project-btn">Live Website</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img id="modal-image" src="" alt="Project Image">
+            <div class="modal-description">
+                <h3 id="modal-title">Project Title</h3>
+                <p id="modal-text">Project description goes here.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+        <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h2 class="section-title">About Astral Axis</h2>
+                <p>
+                    At <strong>Astral Axis</strong>, we strive to transform ideas into digital realities. As a passionate freelancing company, we specialize in a range of creative and technical services, including 
+                    <span class="highlight">Web Development</span>, 
+                    <span class="highlight">Graphic Designing</span>, 
+                    <span class="highlight">Video Editing</span>, 
+                    <span class="highlight">Content Writing</span>, and 
+                    <span class="highlight">Image Editing</span>.
+                </p>
+                <p>
+                    Our mission is to craft solutions that are not only visually stunning but also innovative and user-friendly. We’re dedicated to delivering top-notch services that help businesses and individuals shine in the digital space.
+                </p>
+                <a href="#projects" class="about-btn">Explore Our Work</a>
+            </div>
+            <div class="about-image">
+                <img src="aboutimg.webp" alt="Astral Axis Creativity" />
+            </div>
+        </div>
+    </section>
+
+
+   <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2 class="section-title">Get in Touch</h2>
+                <p>
+                    Have a project in mind? Let's work together to bring your ideas to life. Reach out to us through the form or via the details below.
+                </p>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>theastralaxis@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+91 9046419235</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Kolkata, India</span>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                    </div>
+                    <button type="submit" class="contact-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo and About -->
+            <div class="footer-logo">
+                <h2>Astral Axis</h2>
+                <p>
+                    Empowering ideas through creativity and innovation. Join us to explore endless possibilities in the digital world.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Astral Axis. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
