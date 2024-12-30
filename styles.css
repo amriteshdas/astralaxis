@@ -1,3 +1,14 @@
+:root {
+    --primary: #23abff;
+    --secondary: #0e29a4;
+    --dark: #0a0a1f;
+    --light: #ffffff;
+    --gray: #94a3b8;
+    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+
+
 /* Reset */
 @font-face {
     font-family: 'DoctorGlitch';
@@ -21,6 +32,42 @@
     scroll-behavior: smooth;
 }
 
+
+/* Particles.js Styling */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background: #121212;
+    overflow: hidden;
+}
+
+/* Custom Cursor */
+.cursor {
+    width: 0px;
+    height: 0px;
+    background: var(--primary);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #129df3;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transition: transform 0.1s;
+    z-index: 9998;
+}
+
+
 /* Body */
 body {
     font-family: 'Poppins', sans-serif;
@@ -29,114 +76,193 @@ body {
     line-height: 1.6;
 }
 
-
-/* Header */
-/* Header Navigation */
-header nav {
-    display: flex;
-    justify-content: space-between; /* Align logo and links on opposite sides */
-    align-items: center;
-    padding: 1rem 2rem;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark);
+    color: var(--light);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-header .brand {
+
+
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.176);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5px;
+    
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.398);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-header .logo {
-    height: 50px;
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: #129df3;
+    background-clip: text;
+    color: transparent;
+    font-family: 'Roboto Slab', serif;
 }
 
-header h1 {
-    font-size: 1.5rem;
-    color: #129df3;
-    margin: 0;
-    font-family: 'DoctorGlitch';
-    letter-spacing: 5px;
-    
+.logo-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
 }
 
 .nav-links {
     display: flex;
+    gap: 2rem;
     list-style: none;
-    gap: 2rem; /* Add space between nav links */
-    margin: 0;
 }
 
-.nav-links a {
+.nav-link {
+    color: var(--light);
     text-decoration: none;
-    color: #ffffff;
-    font-size: 1rem;
     font-weight: 500;
-    transition: color 0.3s;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: #129df3;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: width 0.3s ease;
 }
 
+.nav-link:hover {
+    color: var(--primary);
+}
 
-/* Menu Icon (Mobile Mode) */
-.menu-icon {
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.menu-btn {
     display: none;
-    font-size: 2rem;
-    color: #ffffff;
-    cursor: pointer;
-    margin-left: auto;
-}
-
-/* Responsive Design */
-.nav-toggle {
-    display: none;
-    flex-direction: column;
     cursor: pointer;
 }
 
-.nav-toggle .bar {
+.menu-btn__burger {
     width: 25px;
     height: 3px;
-    background-color: #fff;
-    margin: 3px 0;
-    transition: all 0.3s ease;
+    background-color: var(--light);
+    transition: all 0.3s ease-in-out;
 }
 
-/* Mobile Menu (Hidden by Default) */
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: var(--light);
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-btn__burger::before {
+    transform: translateY(-8px);
+}
+
+.menu-btn__burger::after {
+    transform: translateY(8px);
+}
+
+/* Open state for menu button */
+.menu-btn.open .menu-btn__burger {
+    transform: translateX(-50px);
+    background: transparent;
+}
+
+.menu-btn.open .menu-btn__burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn__burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+
 @media (max-width: 768px) {
     .nav-links {
-        position: absolute;
-        top: 70px; /* Position below the header */
-        right: 0;
-        width: 50%;
-        height: calc(100vh - 70px);
-        background-color: #121212;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.176);
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 999;
+        padding: 2rem 0;
+        clip-path: circle(0% at 100% 0);
+        transition: all 0.5s ease-in-out;
     }
 
-    .nav-links.open {
-        transform: translateX(0);
+    .nav-links.active {
+        clip-path: circle(150% at 100% 0);
     }
 
-    .nav-toggle {
-        display: flex;
+    .menu-btn {
+        display: block;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .glitch {
+        font-size: 2.5rem;
+    }
+    
+    .gradient-text {
+        font-size: 2.5rem;
+    }
+    .profile-photo {
+        width: 150px;
+        height: 150px;
     }
 
-    .nav-toggle.open .bar:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+    .profile-name {
+        font-size: 1.5rem;
     }
 
-    .nav-toggle.open .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .nav-toggle.open .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+    .intro-text {
+        font-size: 1.25rem;
     }
 }
 
@@ -145,7 +271,7 @@ header h1 {
 /* Hero Section */
 #hero {
     height: 100vh;
-    background: url('peakpx.jpg') no-repeat center/cover;
+    background: url('') no-repeat center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -182,12 +308,14 @@ header h1 {
     font-size: 1rem;
     text-decoration: none;
     cursor: pointer;
-    transition: transform 0.3s, background 0.3s;
+    transition: transform 1.5s, background 1.5s;
+    
 }
 
 .cta-btn:hover {
     transform: scale(1.05);
-    background: #0573b8;
+    background: var(--gradient);
+
 }
 
 /* Section */
@@ -208,7 +336,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #121212;
+    background-color: #12121200;
     color: #ffffff;
     box-sizing: border-box;
 }
@@ -236,7 +364,7 @@ body {
     max-width: 1200px;
     height: 70vh;
     overflow: hidden;
-    background-color: #000;
+    background-color: #0000004d;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     margin-top: 1rem;
@@ -347,7 +475,7 @@ body {
     width: 100%;
     padding: 2rem 0;
     text-align: center;
-    background-color: #1b1b1b;
+    background-color: #1b1b1b00;
 }
 
 .section-title {
@@ -365,7 +493,7 @@ body {
 
 .project-card {
     position: relative;
-    background-color: #282828;
+    background-color: #28282863;
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
@@ -497,8 +625,9 @@ body {
 /* About Section */
 .about {
     padding: 4rem 2rem;
-    background-color: #1b1b1b;
+    background-color: #0000006f;
     color: #fff;
+    border-radius: 10px;
 }
 
 .about-container {
@@ -578,7 +707,7 @@ body {
 /* Contact Section */
 .contact {
     padding: 4rem 2rem;
-    background-color: #121212;
+    background-color: #12121275;
     color: #fff;
 }
 
@@ -693,10 +822,11 @@ body {
 
 /* Footer Section */
 .footer {
-    background-color: #121212;
+    background-color: #000000ae;
     color: #fff;
     padding: 4rem 2rem;
     position: relative;
+    border-radius: 10px;
 }
 
 .footer-container {
